@@ -16,7 +16,7 @@ spec:
       release: {{ .Release.Name }}
   strategy:
     canary:
-      canaryService: {{ template "helm-guestbook.fullname" . }}
+      canaryService: {{ template "helm-guestbook.fullname" . }}-canary
       steps:
       - setWeight: 20
       - pause: {}

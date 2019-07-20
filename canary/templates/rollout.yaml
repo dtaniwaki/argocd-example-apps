@@ -19,9 +19,10 @@ spec:
       canaryService: {{ template "helm-guestbook.fullname" . }}-canary
       steps:
       - setWeight: 20
-      - pause: {}
+      - pause:
+          duration: 20
       - setWeight: 40
-      - setWeight: 60
+      - pause: {}
   template:
     metadata:
       labels:

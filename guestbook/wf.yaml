@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Workflow
+metadata:
+  generateName: wf-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  entrypoint: whalesay
+  templates:
+  - name: whalesay
+    container:
+      image: docker/whalesay:latest
+      command: [cowsay]
+      args: ["hello world"]
